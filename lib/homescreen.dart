@@ -114,15 +114,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  child: Stack(
                     children: [
-                      MenuButton('Inicio'),
-                      MenuButton('Proyectos'),
-                      MenuButton('Calendario'),
-                      MenuButton('Tareas'),
-                      MenuButton('Recursos'),
-                      MenuButton('Configuracion'),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          MenuButton('Inicio'),
+                          MenuButton('Proyectos'),
+                          MenuButton('Calendario'),
+                          MenuButton('Tareas'),
+                          MenuButton('Recursos'),
+                          MenuButton('Configuracion'),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -169,16 +173,18 @@ class _MenuButtonState extends State<MenuButton> {
         isEnter = false;
         setState(() {});
       },
-      child: TextButton(
-        onPressed: () {},
-        style: ButtonStyle(
-          backgroundColor: WidgetStatePropertyAll(
-            isEnter ? const Color(0xffffc424) : Colors.transparent,
-          ),
+      child: Container(
+        width: 150,
+        margin: const EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: isEnter ? const Color(0xffffc424) : Colors.transparent,
+          borderRadius: BorderRadius.circular(35),
         ),
-        child: Text(
-          widget.text,
-          style: const TextStyle(color: Colors.white, fontSize: 18),
+        child: Center(
+          child: Text(
+            widget.text,
+            style: const TextStyle(color: Colors.white, fontSize: 18),
+          ),
         ),
       ),
     );
