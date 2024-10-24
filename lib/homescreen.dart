@@ -25,12 +25,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Lista de widgets que representan las diferentes vistas
   final List<Widget> views = [
-    Inicio(),
+    const Inicio(),
     const AltaProyectos(), 
-    Calendario(),
-    Recursos(),
-    Configuracion(),
-    Tareas(),
+    const Calendario(),
+    const Recursos(),
+    const Configuracion(),
+    const Tareas(),
     // Ventana de Proyectos
     /*Center(child: Text('Calendario', style: TextStyle(fontSize: 24))),
     Center(child: Text('Recursos', style: TextStyle(fontSize: 24))),

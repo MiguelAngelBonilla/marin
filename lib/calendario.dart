@@ -33,7 +33,7 @@ class _CalendarioState extends State<Calendario> {
           },
           calendarStyle: CalendarStyle(
             selectedDecoration: BoxDecoration(
-              color: Colors.yellow, // Color del día seleccionado
+              color: const Color.fromARGB(255, 115, 106, 25), // Color del día seleccionado
               shape: BoxShape.circle,
             ),
             todayDecoration: BoxDecoration(
