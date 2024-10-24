@@ -113,52 +113,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     size: 40,
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Inicio',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Proyectos',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Calendario',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Tareas',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Recursos',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Configuracion',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                      ),
+                      MenuButton('Inicio'),
+                      MenuButton('Proyectos'),
+                      MenuButton('Calendario'),
+                      MenuButton('Tareas'),
+                      MenuButton('Recursos'),
+                      MenuButton('Configuracion'),
                     ],
                   ),
                 ),
@@ -176,6 +140,46 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class MenuButton extends StatefulWidget {
+  final String text;
+  const MenuButton(
+    this.text, {
+    super.key,
+  });
+
+  @override
+  State<MenuButton> createState() => _MenuButtonState();
+}
+
+class _MenuButtonState extends State<MenuButton> {
+  bool isEnter = false;
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) {
+        isEnter = true;
+        setState(() {});
+      },
+      onExit: (_) {
+        isEnter = false;
+        setState(() {});
+      },
+      child: TextButton(
+        onPressed: () {},
+        style: ButtonStyle(
+          backgroundColor: WidgetStatePropertyAll(
+            isEnter ? const Color(0xffffc424) : Colors.transparent,
+          ),
+        ),
+        child: Text(
+          widget.text,
+          style: const TextStyle(color: Colors.white, fontSize: 18),
+        ),
       ),
     );
   }
