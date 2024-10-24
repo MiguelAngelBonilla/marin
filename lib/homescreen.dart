@@ -25,12 +25,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Lista de widgets que representan las diferentes vistas
   final List<Widget> views = [
-    Inicio(),
-    const AltaProyectos(), 
-    Calendario(),
-    Recursos(),
-    Configuracion(),
-    Tareas(),
+    const Inicio(),
+    const AltaProyectos(),
+    const Calendario(),
+    const Recursos(),
+    const Configuracion(),
+    const Tareas(),
     // Ventana de Proyectos
     /*Center(child: Text('Calendario', style: TextStyle(fontSize: 24))),
     Center(child: Text('Recursos', style: TextStyle(fontSize: 24))),
@@ -42,57 +42,140 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF0B3D91), // Azul metálico oscuro
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            // Contenedor amarillo dentro del AppBar
-            Container(
-              width: 90,
-              height: 60,
-              decoration: BoxDecoration(
-                color: Colors.yellow, // Fondo amarillo
-                shape: BoxShape.circle, // Circular
-                border: Border.all(width: 1, color: Colors.white),
+      // appBar: AppBar(
+      //   backgroundColor: const Color(0xFF0B3D91), // Azul metálico oscuro
+      //   title: Row(
+      //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //     children: [
+      //       // Contenedor amarillo dentro del AppBar
+      //       Container(
+      //         width: 90,
+      //         height: 60,
+      //         decoration: BoxDecoration(
+      //           color: Colors.yellow, // Fondo amarillo
+      //           shape: BoxShape.circle, // Circular
+      //           border: Border.all(width: 1, color: Colors.white),
+      //         ),
+      //       ),
+      //       // Botones dentro del AppBar que cambian la vista
+
+      //       CustomButton(
+      //         label: 'Inicio',
+      //         onPressed: () => changeView(0),
+      //       ),CustomButton(
+      //         label: 'Proyectos',
+      //         onPressed: () => changeView( 1),
+      //       ),
+      //       CustomButton(
+      //         label: 'Calendario',
+      //         onPressed: () => changeView(2),
+      //       ),
+      //       CustomButton(
+      //         label: 'Recursos',
+      //         onPressed: () => changeView(3),
+      //       ),
+      //       CustomButton(
+      //         label: 'Configuración',
+      //         onPressed: () => changeView(4),
+      //       ),
+      //       CustomButton(
+      //         label: 'Tareas',
+      //         onPressed: () => changeView(5),
+      //       ),
+      //     ],
+      //   ),
+      // ),
+      // Mostrar la vista seleccionada en el Container
+      body: Column(
+        children: [
+          Container(
+            height: 80,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(40),
+              color: Colors.grey[900],
+            ),
+            margin: const EdgeInsets.symmetric(
+              horizontal: 80,
+              vertical: 40,
+            ),
+            child: Row(
+              children: [
+                Container(
+                  height: 80,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(35),
+                    color: Colors.white,
+                  ),
+                  margin: const EdgeInsets.all(5),
+                  child: const Icon(
+                    Icons.pest_control_outlined,
+                    size: 40,
+                  ),
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Inicio',
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Proyectos',
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Calendario',
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Tareas',
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Recursos',
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Configuracion',
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: Container(
+                width: 1098,
+                height: 627,
+                decoration: const BoxDecoration(color: Colors.white),
+                child: views[selectedIndex], // Vista que se va a mostrar
               ),
             ),
-            // Botones dentro del AppBar que cambian la vista
-            
-            CustomButton(
-              label: 'Inicio', 
-              onPressed: () => changeView(0),
-            ),CustomButton(
-              label: 'Proyectos', 
-              onPressed: () => changeView( 1),
-            ),
-            CustomButton(
-              label: 'Calendario', 
-              onPressed: () => changeView(2),
-            ),
-            CustomButton(
-              label: 'Recursos', 
-              onPressed: () => changeView(3),
-            ),
-            CustomButton(
-              label: 'Configuración', 
-              onPressed: () => changeView(4),
-            ),
-            CustomButton(
-              label: 'Tareas', 
-              onPressed: () => changeView(5),
-            ),
-          ],
-        ),
-      ),
-      // Mostrar la vista seleccionada en el Container
-      body: Center(
-        child: Container(
-          width: 1098,
-          height: 627,
-          decoration: const BoxDecoration(color: Colors.white),
-          child: views[selectedIndex], // Vista que se va a mostrar
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -126,7 +209,8 @@ class _CustomButtonState extends State<CustomButton> {
       },
       child: TextButton(
         style: TextButton.styleFrom(
-          foregroundColor: Colors.white, backgroundColor: buttonColor, // Color del texto
+          foregroundColor: Colors.white,
+          backgroundColor: buttonColor, // Color del texto
         ),
         onPressed: () {
           widget.onPressed(); // Ejecutar acción al presionar

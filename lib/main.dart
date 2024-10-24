@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'login_form.dart'; // Importa el widget del formulario
+
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: Container(
           color: Colors.white, // Fondo blanco
-          child: LoginForm(), // Llama al widget del formulario
+          child: const LoginForm(), // Llama al widget del formulario
         ),
       ),
     );
