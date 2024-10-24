@@ -134,7 +134,7 @@ class _CustomButtonState extends State<CustomButton> {
             buttonColor = Colors.yellow; // Cambiar a amarillo al presionar
           });
         },
-        child: Text(widget.label),
+        child: Text(widget.label)
       ),
     );
   }
