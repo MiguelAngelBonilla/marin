@@ -43,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFF0B3D91), // Azul metálico oscuro
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
